@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS Calculator </title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+			//function that display value 
+		function dis(val) 
+		{ 
+			document.getElementById("result").value+=val 
+		} 
+		
+		//function that evaluates the digit and return result 
+		function solve() 
+		{ 
+			 x = document.getElementById("result").value ;
+			 y = eval(x); 
+			document.getElementById("result").value = y ;
+		} 
+		
+		//function that clear the display 
+		function clr() 
+		{ 
+			document.getElementById("result").value = "" 
+		} 
+		function backspace() 
+		{ 
+			var value = document.getElementById("result").value;
+            document.getElementById("result").value = value.substr(0, value.length - 1);
+		} 
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="display">
+			<input type="text" id="result" placeholder="0"/ readonly="readonly">
+			
+		</div>
+			<div class="buttons">
+				<div class="row">
+				<input type="button" value="CE" style="background-color: red;color: white;" onclick="clr()"/>
+			    <input type="button" value="/" onclick="dis('/')"/>
+			    <input type="button" value="*" onclick="dis('*')"/>
+			    <input type="button" value="←" style="red;color: red;" onclick="backspace()"/> 
+				</div>
+			  <div class="row">
+				<input type="button" value="1" onclick="dis('1')"/>
+			    <input type="button" value="2" onclick="dis('2')"/>
+			    <input type="button" value="3" onclick="dis('3')"/> 
+			    <input type="button" value="+" onclick="dis('+')"/> 
+				</div>
+				
+				<div class="row">
+				<input type="button" value="4" onclick="dis('4')"/>
+			    <input type="button" value="5" onclick="dis('5')"/> 
+			    <input type="button" value="6" onclick="dis('6')"/> 
+			    <input type="button" value="-" onclick="dis('-')"/> 
+				</div>
+				
+				<div class="row">
+				<input type="button" value="7" onclick="dis('7')"/> 
+			    <input type="button" value="8" onclick="dis('8')"/> 
+			    <input type="button" value="9" onclick="dis('9')"/> 
+			    <input type="button" value="0" onclick="dis('0')"/> 
+				</div>
+				
+				<div class="row"> <!-- style="margin-left:165px;" -->
+			      <input type="button" value="." onclick="dis('.')"/>
+			      <input type="button" value="(" onclick="dis('(')"/>
+			       <input type="button" value=")" onclick="dis(')')"/>
+			      
+		    	<!-- solve function call function solve to evaluate value -->
+		       <input type="button" value="=" style="background-color: green;color: white;" onclick="solve()"/>
+				</div>
+			</div>
+	</div>
+</body>
+	
+</html>
